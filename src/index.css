@@ -1,0 +1,85 @@
+:root {
+  --bg-dark: #0a0e17;
+  --bg-card: rgba(18, 24, 38, 0.6);
+  --bg-card-hover: rgba(26, 35, 50, 0.8);
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --neon-glow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow: hidden; /* Prevent body scroll, everything happens inside App */
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+}
+
+.text-green { color: var(--accent-green); }
+.text-red { color: var(--accent-red); }
+
+/* Glowing text for price changes */
+.glow-green {
+  color: var(--accent-green);
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+.glow-red {
+  color: var(--accent-red);
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* Smooth list transitions */
+.list-move {
+  transition: transform 0.8s ease-in-out;
+}
+
+/* Scrollbar hiding */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
