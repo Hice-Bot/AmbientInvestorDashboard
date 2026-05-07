@@ -269,7 +269,7 @@
 }
 
 .sparkline {
-  filter: drop-shadow(0 0 5px currentColor);
+  /* filter: drop-shadow(0 0 5px currentColor); */
 }
 
 .coin-right {
